@@ -4318,7 +4318,7 @@ class AutofillOverlayListIframe extends autofill_overlay_iframe_element_deprecat
         super(element, "overlay/list.html", AutofillOverlayPort.List, {
             height: "0px",
             minWidth: "250px",
-            maxHeight: "180px",
+            maxHeight: "250px", // [HEDDA] Expand autofill
             boxShadow: "rgba(0, 0, 0, 0.1) 2px 4px 6px 0px",
             borderRadius: "4px",
             borderWidth: "1px",

@@ -695,7 +695,7 @@ body {
     align-content: flex-start;
     align-items: center;
     justify-content: flex-start;
-    padding: .7rem .3rem .7rem .7rem;
+    padding: 0;
     border-radius: .4rem
 }
 
@@ -793,7 +793,7 @@ body {
     flex-shrink: 0;
     width: 3.2rem;
     height: 3.2rem;
-    margin: 0 1rem 0 0;
+    margin: 0 0.5rem 0 0.5rem;
     line-height: 0;
     background-size: 2.6rem;
     background-position: center;
@@ -885,9 +885,10 @@ body {
 .overlay-actions-list-item .cipher-name, .overlay-actions-list-item .cipher-user-login {
     display: block;
     width: 100%;
-    line-height: 1.5;
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 400;
+    line-height: 1.25;
+    font-family: sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -895,7 +896,7 @@ body {
 }
 
 .overlay-actions-list-item .cipher-name {
-    font-size: 1.6rem
+    color: #999999 !important;
 }
 
 .theme_light .overlay-actions-list-item .cipher-name {
@@ -915,7 +916,8 @@ body {
 }
 
 .overlay-actions-list-item .cipher-user-login {
-    font-size: 1.4rem
+    font-size: 1.3rem;
+    color: #3276d2 !important;
 }
 
 .theme_light .overlay-actions-list-item .cipher-user-login {

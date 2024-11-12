@@ -1925,7 +1925,7 @@ class AutofillOverlayList extends autofill_overlay_page_element_deprecated {
     loadPageOfCiphers() {
         const lastIndex = Math.min(this.currentCipherIndex + this.showCiphersPerPage, this.ciphers.length);
         for (let cipherIndex = this.currentCipherIndex; cipherIndex < lastIndex; cipherIndex++) {
-            this.ciphersList.appendChild(this.buildOverlayActionsListItem(this.ciphers[cipherIndex]));
+            this.ciphersList.appendChild(this.buildOverlayActionsListItem(this.ciphers[cipherIndex], cipherIndex)); // [HEDDA] Pass index
             this.currentCipherIndex++;
         }
         if (this.currentCipherIndex >= this.ciphers.length) {
@@ -1937,9 +1937,10 @@ class AutofillOverlayList extends autofill_overlay_page_element_deprecated {
      *
      * @param cipher - The cipher to build the list item for.
      */
-    buildOverlayActionsListItem(cipher) {
+    buildOverlayActionsListItem(cipher, index) { // [HEDDA] Pass index
         const fillCipherElement = this.buildFillCipherElement(cipher);
         const viewCipherElement = this.buildViewCipherElement(cipher);
+        viewCipherElement.setAttribute("title", "#" + index); // [HEDDA] Show sequence
         const cipherContainerElement = globalThis.document.createElement("div");
         cipherContainerElement.classList.add("cipher-container");
         cipherContainerElement.append(fillCipherElement, viewCipherElement);
@@ -2031,11 +2032,12 @@ class AutofillOverlayList extends autofill_overlay_page_element_deprecated {
         const cipherUserLoginElement = this.buildCipherUserLoginElement(cipher);
         const cipherDetailsElement = globalThis.document.createElement("span");
         cipherDetailsElement.classList.add("cipher-details");
-        if (cipherNameElement) {
-            cipherDetailsElement.appendChild(cipherNameElement);
-        }
+        // [HEDDA] Change layout
         if (cipherUserLoginElement) {
             cipherDetailsElement.appendChild(cipherUserLoginElement);
+        }
+        if (cipherNameElement) {
+            cipherDetailsElement.appendChild(cipherNameElement);
         }
         return cipherDetailsElement;
     }
